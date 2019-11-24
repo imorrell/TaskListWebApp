@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "FilterListByInCompletion";
+}
+
+
+@model List<Tasks>
+
+<h1>List Task</h1>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Task Description</th>
+        <th>Due Date</th>
+        <th>Completed</th>
+    </tr>
+    @foreach (Tasks task in Model)
+    {
+        if (task.Completed == "No")
+        {
+            <tr>
+                <td>@task.Id</td>
+                <td>@task.TaskDescription</td>
+                <td>@task.DueDate.ToString()</td>
+                <td>@task.Completed</td>
+                <td><a href="../Home/UpdateTask?id=@task.Id">Update Task</a></td>
+                <td><a href="../Home/DeleteTask?id=@task.Id">Delete Task</a></td>
+            </tr>
+        }
+    }
+    @foreach (Tasks task in Model)
+    {
+        if (task.Completed == "Yes")
+        {
+            <tr>
+                <td>@task.Id</td>
+                <td>@task.TaskDescription</td>
+                <td>@task.DueDate.ToString()</td>
+                <td>@task.Completed</td>
+                <td><a href="../Home/UpdateTask?id=@task.Id">Update Task</a></td>
+                <td><a href="../Home/DeleteTask?id=@task.Id">Delete Task</a></td>
+            </tr>
+        }
+    }
+
+</table>
+
+<a href="../Home/FilterListByCompletion">Filter List By Completed</a><br />
+<a href="../Home/FilterListByInCompletion">Filter List By Incompleted</a>
+

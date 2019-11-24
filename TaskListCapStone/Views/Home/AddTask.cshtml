@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "AddTask";
+}
+
+@model Task
+<h1 style="text-align: center;">Add Task</h1>
+<br />
+
+<form class="form-group" action="../Home/AddTask" method="post">
+    <label>Task Description: </label>
+    <input class="form-row" type="text" name="TaskDescription" required /><br />
+    <label>Due Date:</label>
+    <input class="form-row" type="date" name="DueDate" required /> <br />
+    <label>Completion</label><br />
+    <label>Yes</label>
+    <input class="form-row" type="radio" name="Completed" value="Yes" required />
+    <label>No</label>
+    <input class="form-row" type="radio" name="Completed" value="No" />
+    <input type="hidden" name="UserId" value="@ViewBag.Id" />
+    <br />
+    <br />
+    <input class="btn-success" type="submit" value="Add Task" />
+
+</form>
